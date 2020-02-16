@@ -1,4 +1,22 @@
 pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
     // agent {
     //     docker {
     //         image 'node:6-alpine'
@@ -8,16 +26,16 @@ pipeline {
     // environment {
     //     CI = 'true'
     // }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh './jenkins/scripts/test.sh'
-            }
-        }
-    }
+    // stages {
+    //     stage('Build') {
+    //         steps {
+    //             sh 'npm install'
+    //         }
+    //     }
+    //     stage('Test') {
+    //         steps {
+    //             sh './jenkins/scripts/test.sh'
+    //         }
+    //     }
+    // }
 }
